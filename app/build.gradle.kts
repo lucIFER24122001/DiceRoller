@@ -1,11 +1,13 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
 }
 
 android {
     namespace = "com.example.diceroller"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.diceroller"
@@ -16,7 +18,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        dataBinding = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false

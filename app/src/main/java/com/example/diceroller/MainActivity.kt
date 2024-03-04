@@ -7,23 +7,22 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.media.MediaPlayer
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.example.diceroller.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var imageView: ImageView
+
     var mMediaPlayer: MediaPlayer? = null
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        var btn = findViewById<Button>(R.id.rollBtn)
-        imageView = findViewById(R.id.iv)
-
-
-        btn.setOnClickListener { rollDice() }
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding.rollBtn.setOnClickListener { rollDice() }
 
     }
 
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        imageView.setImageResource(drawableImage)
+        binding.iv.setImageResource(drawableImage)
 
     }
 
